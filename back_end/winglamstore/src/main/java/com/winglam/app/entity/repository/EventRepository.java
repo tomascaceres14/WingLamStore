@@ -1,9 +1,9 @@
 package com.winglam.app.entity.repository;
 
-import com.winglam.app.entity.model.Course;
+import com.winglam.app.entity.model.Event;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CourseRepository extends MongoRepository<Course, String> {
+public interface EventRepository extends MongoRepository<Event, String> {
 }

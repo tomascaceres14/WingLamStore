@@ -14,14 +14,14 @@ import java.util.Date;
 @Setter
 @ToString
 @Data
-@Document(collection = "Course")
-public class Course implements Serializable {
+@Document(collection = "Event")
+public class Event implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
-    private String courseId;
+    private String eventId;
 
     private String title;
 
@@ -30,6 +30,8 @@ public class Course implements Serializable {
     private String img;
 
     private Integer capacity;
+
+    private Integer price;
 
     private Date fromDate;
 
