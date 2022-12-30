@@ -42,12 +42,6 @@ public class ProductController {
 
     @GetMapping()
     public ResponseEntity<List<Product>> getAll(){
-        List<String> order = new ArrayList<>();
-        order.add("Remera Wing Lam Kung Fu");
-        order.add("Espada plateada ninja");
-        order.add("Bombo chino");
-        order.add("Sahumerios");
-        emailService.sendEmail("tomialegriacaceres@gmail.com", "Email de prueba", emailBody("tomialegriacaceres@gmail.com", "Tomas Alegria Caceres", order));
         return ResponseEntity.ok(service.findAll());
     }
 
