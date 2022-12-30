@@ -5,7 +5,7 @@ import com.winglam.app.service.tools.EmailSenderService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/email")
+@RequestMapping("/api/v1/notifications")
 public class EmailsController {
 
     EmailSenderService emailService;
@@ -14,7 +14,7 @@ public class EmailsController {
         this.emailService = emailService;
     }
 
-    @PostMapping("/api/v1/orders")
+    @PostMapping("/productorders")
     public String newProductOrder(@RequestBody ProductOrderDTO order){
         String presentation =
                 "Ha ingresado un nuevo pedido:\n\n" +
