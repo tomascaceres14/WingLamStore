@@ -5,14 +5,13 @@ import com.winglam.app.entity.model.Product;
 import com.winglam.app.service.ProductService;
 import com.winglam.app.service.tools.EmailSenderService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@RestController
+@RequestMapping("/api/v1/product")
 public class ProductController {
 
     ProductService service;

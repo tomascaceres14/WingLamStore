@@ -8,6 +8,7 @@ import java.util.List;
 
 @Service
 public class ProductService {
+
     private ProductRepository repository;
 
     public ProductService(ProductRepository repository) {
