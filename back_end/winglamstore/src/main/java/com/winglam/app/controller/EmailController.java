@@ -28,6 +28,6 @@ public class EmailController {
             System.out.println(productList);
         }
         emailService.sendEmail("tomialegriacaceres@gmail.com", "Nuevo pedido online", presentation + productList);
-        return "Su pedido se ha enviado con exito. Se le confirmara via E-mail cuando esté listo";
+        return "Su pedido se ha enviado con éxito. Se le confirmará vía E-mail cuando esté listo";
     }
 }
