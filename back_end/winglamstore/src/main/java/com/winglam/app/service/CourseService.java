@@ -1,4 +1,4 @@
-package com.winglam.app.entity.service;
+package com.winglam.app.service;
 
 import com.winglam.app.entity.model.Course;
 import com.winglam.app.entity.repository.CourseRepository;
