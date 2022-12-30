@@ -14,7 +14,7 @@ public class EmailsController {
         this.emailService = emailService;
     }
 
-    @PostMapping("/order")
+    @PostMapping("/api/v1/orders")
     public String newProductOrder(@RequestBody ProductOrderDTO order){
         String presentation =
                 "Ha ingresado un nuevo pedido:\n\n" +
