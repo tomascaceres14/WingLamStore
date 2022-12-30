@@ -1,12 +1,8 @@
 package com.winglam.app.controller;
 
+import com.winglam.app.controller.dto.ProductOrderDTO;
 import com.winglam.app.service.tools.EmailSenderService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/email")
@@ -19,15 +15,15 @@ public class EmailsController {
     }
 
     @PostMapping("/order")
-    public String newProductOrder(String email, String nameLastname, List<String> products){
+    public String newProductOrder(@RequestBody ProductOrderDTO order){
         String presentation =
                 "Ha ingresado un nuevo pedido:\n\n" +
                         "Datos del cliente:\n" +
-                        "  Nombre y Apellido: " + nameLastname + "\n" +
-                        "  Correo electronico: " + email + "\n\n";
+                        "  Nombre y Apellido: " + order.getNameLastname() + "\n" +
+                        "  Correo electronico: " + order.getEmail() + "\n\n";
         String productList = "Pedido:\n";
         for (String p :
-                products) {
+                order.getProducts()) {
             productList+= "  ~ " + p + "\n";
             System.out.println(productList);
         }
