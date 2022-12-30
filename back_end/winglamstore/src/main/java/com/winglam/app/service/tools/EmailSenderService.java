@@ -1,4 +1,4 @@
-package com.winglam.app.service;
+package com.winglam.app.service.tools;
 
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
