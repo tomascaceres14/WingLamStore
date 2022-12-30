@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/notifications")
-public class EmailsController {
+public class EmailController {
 
     EmailSenderService emailService;
 
-    public EmailsController(EmailSenderService emailService) {
+    public EmailController(EmailSenderService emailService) {
         this.emailService = emailService;
     }
 
