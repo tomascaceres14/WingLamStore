@@ -22,24 +22,6 @@ public class ProductController {
         this.emailService = emailService;
     }
 
-    public String emailBody(String email, String nameLastname, List<String> products){
-        String presentation =
-                "Ha ingresado un nuevo pedido:\n\n" +
-                        "Datos del cliente:\n" +
-                        "  Nombre y Apellido: " + nameLastname + "\n" +
-                        "  Correo electronico: " + email + "\n\n";
-
-        String productList = "Pedido:\n";
-
-        for (String p :
-                products) {
-            productList+= "  ~ " + p + "\n";
-            System.out.println(productList);
-        }
-
-        return presentation + productList;
-    }
-
     @GetMapping()
     public ResponseEntity<List<Product>> getAll(){
         return ResponseEntity.ok(service.findAll());
