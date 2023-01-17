@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Products = (props) => {
   const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    setProducts(
+      localStorage.getItem("products")
+        ? JSON.parse(localStorage.getItem("products"))
+        : []
+    );
+  }, []);
 
   const clickHandler = (p) => {
     products.push(p);
