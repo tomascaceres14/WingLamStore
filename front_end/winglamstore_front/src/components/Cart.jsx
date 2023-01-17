@@ -28,15 +28,13 @@ const Cart = () => {
   }
 
   function generateMessage() {
-    let message = "Hola! estos son los productos que deseo adquirir:\n ";
+    let message = "Hola! estos son los productos que deseo adquirir:\n";
     let dirtyArray = [];
 
     items.forEach((i) => {
-      dirtyArray.push(getOcurrence(i.name) + "x " + i.name);
+      dirtyArray.push( " " + getOcurrence(i.name) + "x " + i.name);
     });
-    return (
-      message + removeDuplicates(dirtyArray).toString().replace(/,/g, ". ")
-    );
+    return message + removeDuplicates(dirtyArray).toString();
   }
 
   const purchaseHandler = () => {
