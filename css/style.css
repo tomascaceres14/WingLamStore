@@ -1,0 +1,79 @@
+img {
+  width: 80px;
+}
+
+/* --- NAVBAR --- */
+
+.navbar {
+  border-bottom: 2px solid gray;
+  padding: 1.5rem;
+}
+
+.navbar-collapse {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav-link {
+  color: orangered;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: large;
+}
+
+.item-count {
+  display: flex;
+  gap: 0;
+}
+
+.item-count span {
+  position: relative;
+  right: 5px;
+  font-size: smaller;
+  color: white;
+  padding: 0px 5px;
+  height: fit-content;
+  border-radius: 100px;
+  background: orangered;
+}
+
+/* --- PRODUCTS --- */
+
+.products {
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 68, 0, 0.686);
+  gap: 7rem;
+  padding: 2rem;
+  margin: 0;
+}
+
+.card {
+  width: 20rem;
+  height: 30rem;
+}
+
+.card img {
+  height: 20rem;
+  width: auto;
+}
+
+/* --- CART --- */
+
+.btn-remove {
+  border: none;
+  background: #dc3545;
+  color: white;
+  border-radius: 5px;
+  padding: 2px 20px;
+}
+
+.td-btn-remove {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-confirm-order {
+  font-size: larger;
+  font-weight: 700;
+}
