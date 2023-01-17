@@ -1,11 +1,21 @@
 import "./App.css";
-import Navigation from "./components/navigation";
-import Card from "./components/card"
+import Navigation from "./components/Navigation";
+import JsonData from "./data/data.json";
+import { useEffect, useState } from "react";
+import Products from "./components/Products";
+
 function App() {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    setData(JsonData);
+  }, []);
+
   return (
     <div>
       <Navigation />
-      <Card />
+      <Products data={data.Products} />
+      {/* <Cart data={data.Products} /> */}
     </div>
   );
 }
