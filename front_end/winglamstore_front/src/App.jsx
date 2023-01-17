@@ -31,8 +31,6 @@ function App() {
         <Route path="/productos" element={<Products data={data.Products} />} />
         <Route path="/carrito" element={<Cart />} />
       </Routes>
-      {/* <Products data={data.Products} /> */}
-      {/* <Cart data={data.Products} /> */}
     </div>
   );
 }

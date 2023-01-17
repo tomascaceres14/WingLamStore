@@ -22,9 +22,9 @@ const Navigation = () => {
         <div className="collapse navbar-collapse" id="navbar-toggler">
           <ul className="navbar-nav d-flex justify-content-center align-items-center">
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="#">
+              <Link to="/" className="nav-link" aria-current="page" href="#">
                 Inicio
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <Link to="/" className="nav-link" href="#">
@@ -32,14 +32,20 @@ const Navigation = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link">Eventos</a>
+              <Link to="/" className="nav-link">
+                Eventos
+              </Link>
             </li>
             <li className="nav-item">
-              <Link to="/productos" className="nav-link">Productos</Link>
+              <Link to="/productos" className="nav-link">
+                Productos
+              </Link>
             </li>
-            <li className="nav-item asd">
-              <Link to="/carrito" className="nav-link">Carrito</Link>
-              <span className="item-count">0</span>
+            <li className="nav-item item-count">
+              <Link to="/carrito" className="nav-link">
+                Carrito
+              </Link>
+              <span>0</span>
             </li>
           </ul>
         </div>
