@@ -77,3 +77,29 @@ img {
   font-size: larger;
   font-weight: 700;
 }
+
+/* --- ADMIN PANEL --- */
+
+.productsForm {
+  background: lightblue;
+  padding: 2rem 3rem;
+  border-radius: 10px;
+}
+
+/* .productsForm div {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productsForm div label {
+  width: fit-content;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.productsForm div input {
+  border-radius: 50px;
+  width: 50em;
+} */

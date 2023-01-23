@@ -21,7 +21,7 @@ const Products = (props) => {
       {props.data
         ? props.data.map((d, i) => (
             <div className="card" key={"product" + i}>
-              <img src={d.img} alt={d.name} srcSet="" />
+              <img src={d.imgUrl} alt={d.name} srcSet="" />
               <div className="card-body text-center">
                 <h5 className="card-title">{d.name}</h5>
                 <p className="card-text">${d.price}</p>

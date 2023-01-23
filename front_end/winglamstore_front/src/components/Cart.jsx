@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const Cart = () => {
   const [items, setItems] = useState(
@@ -32,7 +32,7 @@ const Cart = () => {
     let dirtyArray = [];
 
     items.forEach((i) => {
-      dirtyArray.push( " " + getOcurrence(i.name) + "x " + i.name);
+      dirtyArray.push(" " + getOcurrence(i.name) + "x " + i.name);
     });
     return message + removeDuplicates(dirtyArray).toString();
   }

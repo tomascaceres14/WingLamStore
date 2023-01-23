@@ -5,9 +5,7 @@ const Navigation = () => {
   return (
     <nav className="navbar navbar-expand-md bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          WING LAM
-        </a>
+        <a className="navbar-brand" href="#a">WING LAM</a>
         <button
           className="navbar-toggler"
           type="button"
@@ -22,7 +20,7 @@ const Navigation = () => {
         <div className="collapse navbar-collapse" id="navbar-toggler">
           <ul className="navbar-nav d-flex justify-content-center align-items-center">
             <li className="nav-item">
-              <Link to="/" className="nav-link" aria-current="page" href="#">
+              <Link to="/" className="nav-link" aria-current="page">
                 Inicio
               </Link>
             </li>
@@ -39,6 +37,11 @@ const Navigation = () => {
             <li className="nav-item">
               <Link to="/productos" className="nav-link">
                 Productos
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/admin" className="nav-link">
+                Admin
               </Link>
             </li>
             <li className="nav-item item-count">
