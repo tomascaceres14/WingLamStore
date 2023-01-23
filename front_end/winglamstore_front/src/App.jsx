@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import AdminPanel from "./components/AdminPanel";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import axios from "axios";
+import CartProvider from "./components/providers/CartProvider";
 
 function App() {
   const [data, setData] = useState([]);
@@ -19,13 +20,15 @@ function App() {
   return (
     <div>
       <Navigation />
-      <Routes>
-        <Route path="/productos" element={<Products data={data} />} />
-        <Route path="/carrito" element={<Cart />} />
-        <Route element={<ProtectedRoutes />}>
-          <Route path="/admin" element={<AdminPanel />} />
-        </Route>
-      </Routes>
+      <CartProvider>
+        <Routes>
+          <Route path="/productos" element={<Products data={data} />} />
+          <Route path="/carrito" element={<Cart />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/admin" element={<AdminPanel />} />
+          </Route>
+        </Routes>
+      </CartProvider>
     </div>
   );
 }
