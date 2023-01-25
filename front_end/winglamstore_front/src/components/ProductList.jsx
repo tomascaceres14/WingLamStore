@@ -2,33 +2,28 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 
 const ProductList = ({ data, cart }) => {
-  const [wingLamCart, setwingLamCart] = useState([]);
+  const [wingLamCart, setWingLamCart] = useState([]);
 
   useEffect(() => {
-    setwingLamCart(
-      localStorage.getItem("wingLamCart")
+    setWingLamCart(
+      localStorage.getItem("wingLamCart") != null
         ? JSON.parse(localStorage.getItem("wingLamCart"))
         : []
     );
   }, []);
 
-  function getOcurrence(value) {
-    var count = 1;
-    wingLamCart.forEach((v) => v.name === value && count++);
-    return count;
-  }
-
   const addToCartHandler = (p) => {
+    wingLamCart.forEach((e) => {
+      Reflect.deleteProperty(e, "quantity");
+    });
     if (wingLamCart.includes(p)) {
       wingLamCart[wingLamCart.indexOf(p)].quantity += 1;
       localStorage.setItem("wingLamCart", JSON.stringify(wingLamCart));
-      console.log(wingLamCart);
     } else {
       p.quantity = 1;
       wingLamCart.push(p);
       localStorage.setItem("wingLamCart", JSON.stringify(wingLamCart));
       cart();
-      console.log(p);
     }
   };
 
@@ -40,6 +35,7 @@ const ProductList = ({ data, cart }) => {
               data={d}
               handler={addToCartHandler}
               key={"product-card-" + i}
+              id={i}
             />
           ))
         : "Loading..."}
