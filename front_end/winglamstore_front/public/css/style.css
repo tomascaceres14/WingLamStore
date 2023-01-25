@@ -64,17 +64,29 @@ table {
   text-align: center;
 }
 
+.aaa {
+  width: 6rem;
+}
+
+.td-quantity {
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-add-sub {
+  padding: 0.2rem 0.7rem;
+}
+
+.td-btn-remove {
+  width: 20rem;
+}
+
 .btn-remove {
   border: none;
   background: #dc3545;
   color: white;
   border-radius: 5px;
   padding: 2px 20px;
-}
-
-.td-btn-remove {
-  display: flex;
-  justify-content: center;
 }
 
 .btn-confirm-order {

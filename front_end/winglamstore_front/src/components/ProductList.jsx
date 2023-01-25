@@ -12,11 +12,24 @@ const ProductList = ({ data, cart }) => {
     );
   }, []);
 
+  function getOcurrence(value) {
+    var count = 1;
+    wingLamCart.forEach((v) => v.name === value && count++);
+    return count;
+  }
+
   const addToCartHandler = (p) => {
-    console.log(p);
-    wingLamCart.push(p);
-    localStorage.setItem("wingLamCart", JSON.stringify(wingLamCart));
-    cart();
+    if (wingLamCart.includes(p)) {
+      wingLamCart[wingLamCart.indexOf(p)].quantity += 1;
+      localStorage.setItem("wingLamCart", JSON.stringify(wingLamCart));
+      console.log(wingLamCart);
+    } else {
+      p.quantity = 1;
+      wingLamCart.push(p);
+      localStorage.setItem("wingLamCart", JSON.stringify(wingLamCart));
+      cart();
+      console.log(p);
+    }
   };
 
   return (

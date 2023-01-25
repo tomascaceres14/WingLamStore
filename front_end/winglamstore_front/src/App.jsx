@@ -25,12 +25,10 @@ function App() {
 
   const cartAdd = () => {
     setCartCount(cartCount + 1);
-    console.log(cartCount);
   };
 
   const cartSubstract = () => {
     setCartCount(cartCount - 1);
-    console.log(cartCount);
   };
 
   return (
