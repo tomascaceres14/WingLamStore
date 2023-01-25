@@ -7,7 +7,7 @@ const Navigation = ({ cartCount }) => {
     <nav className="navbar navbar-expand-md bg-body-tertiary">
       <div className="container-fluid">
         <a className="navbar-brand" href="#a">
-          WING LAM
+          WING LAM STORE
         </a>
         <button
           className="navbar-toggler"
@@ -30,11 +30,6 @@ const Navigation = ({ cartCount }) => {
             <li className="nav-item">
               <Link to="/" className="nav-link" href="#">
                 Institucional
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/" className="nav-link">
-                Eventos
               </Link>
             </li>
             <li className="nav-item">

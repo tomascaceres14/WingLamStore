@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 const Cart = ({ cart }) => {
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem("cart")));
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem("wingLamCart")));
   const [total, setTotal] = useState(0);
 
   const deleteHandler = (id) => {
     items.splice(id, 1);
-    localStorage.setItem("cart", JSON.stringify(items));
-    setItems(JSON.parse(localStorage.getItem("cart")));
+    localStorage.setItem("wingLamCart", JSON.stringify(items));
+    setItems(JSON.parse(localStorage.getItem("wingLamCart")));
     cart();
   };
 

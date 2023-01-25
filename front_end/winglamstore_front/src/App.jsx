@@ -1,7 +1,7 @@
 import "./App.css";
 import Navigation from "./components/Navigation";
 import { useEffect, useState } from "react";
-import Products from "./components/Products";
+import ProductList from "./components/ProductList";
 import Cart from "./components/Cart";
 import { Route, Routes } from "react-router-dom";
 import AdminPanel from "./components/AdminPanel";
@@ -17,8 +17,8 @@ function App() {
       setData(e.data);
     });
     setCartCount(
-      localStorage.getItem("cart")
-        ? JSON.parse(localStorage.getItem("cart")).length
+      localStorage.getItem("wingLamCart")
+        ? JSON.parse(localStorage.getItem("wingLamCart")).length
         : 0
     );
   }, []);
@@ -39,7 +39,7 @@ function App() {
       <Routes>
         <Route
           path="/productos"
-          element={<Products data={data} cart={cartAdd} />}
+          element={<ProductList data={data} cart={cartAdd} />}
         />
         <Route path="/carrito" element={<Cart cart={cartSubstract} />} />
         <Route element={<ProtectedRoutes />}>
