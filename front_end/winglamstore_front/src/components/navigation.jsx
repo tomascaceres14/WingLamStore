@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navigation = () => {
+const Navigation = ({ cartCount }) => {
+
   return (
     <nav className="navbar navbar-expand-md bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#a">WING LAM</a>
+        <a className="navbar-brand" href="#a">
+          WING LAM
+        </a>
         <button
           className="navbar-toggler"
           type="button"
@@ -39,16 +42,16 @@ const Navigation = () => {
                 Productos
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/admin" className="nav-link">
-                Admin
-              </Link>
-            </li>
             <li className="nav-item item-count">
               <Link to="/carrito" className="nav-link">
                 Carrito
               </Link>
-              <span>0</span>
+              <span>{cartCount}</span>
+            </li>
+            <li className="nav-item">
+              <Link to="/admin" className="nav-link">
+                Admin
+              </Link>
             </li>
           </ul>
         </div>

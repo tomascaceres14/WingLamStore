@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-const Cart = () => {
-  const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem("products"))
-  );
+const Cart = ({ cart }) => {
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem("cart")));
+  const [total, setTotal] = useState(0);
 
   const deleteHandler = (id) => {
     items.splice(id, 1);
-    localStorage.setItem("products", JSON.stringify(items));
-    setItems(JSON.parse(localStorage.getItem("products")));
+    localStorage.setItem("cart", JSON.stringify(items));
+    setItems(JSON.parse(localStorage.getItem("cart")));
+    cart();
   };
 
   function getOcurrence(value) {
@@ -34,6 +34,7 @@ const Cart = () => {
     items.forEach((i) => {
       dirtyArray.push(" " + getOcurrence(i.name) + "x " + i.name);
     });
+
     return message + removeDuplicates(dirtyArray).toString();
   }
 
@@ -50,6 +51,7 @@ const Cart = () => {
             <th scope="col">#</th>
             <th scope="col">Producto</th>
             <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -62,6 +64,7 @@ const Cart = () => {
                   </th>
                   <td>{d.name}</td>
                   <td>${d.price}</td>
+                  <td>{getOcurrence(d.name)}</td>
                   <td className="td-btn-remove">
                     <button
                       type="button"
@@ -76,6 +79,7 @@ const Cart = () => {
             : "Loading..."}
         </tbody>
       </table>
+      <p>{total}</p>
       <div className="container-fluid d-flex justify-content-center">
         <button
           className="btn btn-success btn-confirm-order"

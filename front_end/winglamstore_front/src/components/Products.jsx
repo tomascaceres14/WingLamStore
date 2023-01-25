@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from "react";
 
-const Products = (props) => {
+const Products = ({ data, cart }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     setProducts(
-      localStorage.getItem("products")
-        ? JSON.parse(localStorage.getItem("products"))
+      localStorage.getItem("cart")
+        ? JSON.parse(localStorage.getItem("cart"))
         : []
     );
   }, []);
 
   const clickHandler = (p) => {
     products.push(p);
-    localStorage.setItem("products", JSON.stringify(products));
+    localStorage.setItem("cart", JSON.stringify(products));
+    cart();
   };
 
   return (
     <div className="container-fluid products row">
-      {props.data
-        ? props.data.map((d, i) => (
+      {data
+        ? data.map((d, i) => (
             <div className="card" key={"product" + i}>
               <img src={d.imgUrl} alt={d.name} srcSet="" />
               <div className="card-body text-center">

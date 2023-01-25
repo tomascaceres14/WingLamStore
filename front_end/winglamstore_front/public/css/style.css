@@ -60,6 +60,10 @@ img {
 
 /* --- CART --- */
 
+table {
+  text-align: center;
+}
+
 .btn-remove {
   border: none;
   background: #dc3545;
