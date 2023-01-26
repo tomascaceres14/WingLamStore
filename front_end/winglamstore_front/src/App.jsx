@@ -33,12 +33,14 @@ function App() {
         if (item.productId === product.productId) {
           item.quantity += 1;
           localStorage.setItem("wingLamCart", JSON.stringify(cartItems));
+          setCartItems(JSON.parse(localStorage.getItem("wingLamCart")));
         }
       });
     } else {
       product.quantity = 1;
       cartItems.push(product);
       localStorage.setItem("wingLamCart", JSON.stringify(cartItems));
+      setCartItems(JSON.parse(localStorage.getItem("wingLamCart")));
     }
   };
 
