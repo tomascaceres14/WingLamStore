@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navigation = ({ cartCount }) => {
+const Navigation = () => {
 
   return (
     <nav className="navbar navbar-expand-md bg-body-tertiary">
@@ -41,7 +41,7 @@ const Navigation = ({ cartCount }) => {
               <Link to="/carrito" className="nav-link">
                 Carrito
               </Link>
-              <span>{cartCount}</span>
+              <span>*</span>
             </li>
             <li className="nav-item">
               <Link to="/admin" className="nav-link">

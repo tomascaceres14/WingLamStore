@@ -1,7 +1,7 @@
 import "./App.css";
 import Navigation from "./components/Navigation";
 import { useEffect, useState } from "react";
-import ProductList from "./components/ProductList";
+import Products from "./components/Products";
 import Cart from "./components/Cart";
 import { Route, Routes } from "react-router-dom";
 import AdminPanel from "./components/AdminPanel";
@@ -9,37 +9,55 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 import axios from "axios";
 
 function App() {
-  const [data, setData] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
+  const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:8080/api/v1/products").then((e) => {
-      setData(e.data);
+      setProducts(e.data);
     });
-    setCartCount(
-      localStorage.getItem("wingLamCart")
-        ? JSON.parse(localStorage.getItem("wingLamCart")).length
-        : 0
+    setCartItems(
+      localStorage.getItem("wingLamCart") != null
+        ? JSON.parse(localStorage.getItem("wingLamCart"))
+        : []
     );
   }, []);
 
-  const cartAdd = () => {
-    setCartCount(cartCount + 1);
-  };
+  const addToCartHandler = (product) => {
+    const productExists = cartItems.find(
+      (item) => item.productId === product.productId
+    );
 
-  const cartSubstract = () => {
-    setCartCount(cartCount - 1);
+    if (productExists) {
+      cartItems.forEach((item) => {
+        if (item.productId === product.productId) {
+          item.quantity += 1;
+          localStorage.setItem("wingLamCart", JSON.stringify(cartItems));
+        }
+      });
+    } else {
+      product.quantity = 1;
+      cartItems.push(product);
+      localStorage.setItem("wingLamCart", JSON.stringify(cartItems));
+    }
   };
 
   return (
     <div>
-      <Navigation cartCount={cartCount} />
+      <Navigation cartItems={cartItems} />
       <Routes>
         <Route
           path="/productos"
-          element={<ProductList data={data} cart={cartAdd} />}
+          element={
+            <Products data={products} addToCartHandler={addToCartHandler} />
+          }
         />
-        <Route path="/carrito" element={<Cart cart={cartSubstract} />} />
+        <Route
+          path="/carrito"
+          element={
+            <Cart cartItems={cartItems} addToCartHandler={addToCartHandler} />
+          }
+        />
         <Route element={<ProtectedRoutes />}>
           <Route path="/admin" element={<AdminPanel />} />
         </Route>

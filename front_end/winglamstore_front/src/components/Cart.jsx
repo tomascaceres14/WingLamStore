@@ -1,59 +1,55 @@
 import React, { useState } from "react";
 
-const Cart = ({ cart }) => {
-  const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem("wingLamCart"))
-  );
+const Cart = ({ cartItems, addToCartHandler }) => {
+  // const subQuantity = (i) => {
+  //   if (items[i].quantity === 1) {
+  //     deleteHandler(i);
+  //   } else items[i].quantity -= 1;
+  //   localStorage.setItem("wingLamCart", JSON.stringify(items));
+  //   setItems(JSON.parse(localStorage.getItem("wingLamCart")));
+  // };
 
-  const subQuantity = (i) => {
-    if (items[i].quantity === 1) {
-      deleteHandler(i);
-    } else items[i].quantity -= 1;
-    localStorage.setItem("wingLamCart", JSON.stringify(items));
-    setItems(JSON.parse(localStorage.getItem("wingLamCart")));
-  };
+  // const addQuantity = (i) => {
+  //   items[i].quantity += 1;
+  //   localStorage.setItem("wingLamCart", JSON.stringify(items));
+  //   setItems(JSON.parse(localStorage.getItem("wingLamCart")));
+  // };
 
-  const addQuantity = (i) => {
-    items[i].quantity += 1;
-    localStorage.setItem("wingLamCart", JSON.stringify(items));
-    setItems(JSON.parse(localStorage.getItem("wingLamCart")));
-  };
+  // const deleteHandler = (id) => {
+  //   items.splice(id, 1);
+  //   localStorage.setItem("wingLamCart", JSON.stringify(items));
+  //   setItems(JSON.parse(localStorage.getItem("wingLamCart")));
+  // };
 
-  const deleteHandler = (id) => {
-    items.splice(id, 1);
-    localStorage.setItem("wingLamCart", JSON.stringify(items));
-    setItems(JSON.parse(localStorage.getItem("wingLamCart")));
-    cart();
-  };
+  // function removeDuplicates(arr) {
+  //   let unique = [];
+  //   for (let i = 0; i < arr.length; i++) {
+  //     if (unique.indexOf(arr[i]) === -1) {
+  //       unique.push(arr[i]);
+  //     }
+  //   }
+  //   return unique;
+  // }
 
-  function removeDuplicates(arr) {
-    let unique = [];
-    for (let i = 0; i < arr.length; i++) {
-      if (unique.indexOf(arr[i]) === -1) {
-        unique.push(arr[i]);
-      }
-    }
-    return unique;
-  }
+  // function generateMessage() {
+  //   let message = "Hola! estos son los productos que deseo adquirir:\n";
+  //   let dirtyArray = [];
 
-  function generateMessage() {
-    let message = "Hola! estos son los productos que deseo adquirir:\n";
-    let dirtyArray = [];
+  //   items.forEach((i) => {
+  //     dirtyArray.push(" " + i.quantity + "x " + i.name);
+  //   });
 
-    items.forEach((i) => {
-      dirtyArray.push(" " + i.quantity + "x " + i.name);
-    });
+  //   return message + removeDuplicates(dirtyArray).toString();
+  // }
 
-    return message + removeDuplicates(dirtyArray).toString();
-  }
-
-  const purchaseHandler = () => {
-    const URL = `https://wa.me/543492383044?text=` + generateMessage();
-    window.open(URL, "_blank");
-  };
+  // const purchaseHandler = () => {
+  //   const URL = `https://wa.me/543492383044?text=` + generateMessage();
+  //   window.open(URL, "_blank");
+  // };
 
   return (
     <div>
+      {cartItems.length === 0 && <div>no items addded</div>}
       <table className="table">
         <thead>
           <tr>
@@ -64,22 +60,22 @@ const Cart = ({ cart }) => {
           </tr>
         </thead>
         <tbody>
-          {items
-            ? items.map((d, i) => (
+          {cartItems
+            ? cartItems.map((d, i) => (
                 <tr key={"cart-item-" + i}>
                   <td>{d.name}</td>
                   <td>${d.price}</td>
                   <td className="d-flex td-quantity">
                     <button
                       className="btn btn-warning btn-add-sub"
-                      onClick={() => subQuantity(i)}
+                      // onClick={() => subQuantity(i)}
                     >
                       -
                     </button>
                     {d.quantity}
                     <button
                       className="btn btn-warning btn-add-sub"
-                      onClick={() => addQuantity(i)}
+                      onClick={() => addToCartHandler(i)}
                     >
                       +
                     </button>
@@ -88,20 +84,20 @@ const Cart = ({ cart }) => {
                     <button
                       type="button"
                       className="btn-remove"
-                      onClick={() => deleteHandler(i)}
+                      // onClick={() => deleteHandler(i)}
                     >
                       Eliminar del carrito
                     </button>
                   </td>
                 </tr>
               ))
-            : "Loading..."}
+            : "loading..."}
         </tbody>
       </table>
       <div className="container-fluid d-flex justify-content-center">
         <button
           className="btn btn-success btn-confirm-order"
-          onClick={() => purchaseHandler()}
+          // onClick={() => purchaseHandler()}
         >
           Confirmar pedido
         </button>
