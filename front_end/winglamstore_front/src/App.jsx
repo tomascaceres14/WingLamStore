@@ -55,7 +55,11 @@ function App() {
         <Route
           path="/carrito"
           element={
-            <Cart cartItems={cartItems} addToCartHandler={addToCartHandler} />
+            <Cart
+              cartItems={cartItems}
+              addToCartHandler={addToCartHandler}
+              setCartItems={setCartItems}
+            />
           }
         />
         <Route element={<ProtectedRoutes />}>

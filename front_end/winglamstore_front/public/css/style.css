@@ -60,33 +60,50 @@ img {
 
 /* --- CART --- */
 
-table {
-  text-align: center;
+.cart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.aaa {
-  width: 6rem;
+.cart-item {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: darkkhaki;
+  padding: 1rem 0px;
 }
 
-.td-quantity {
+.cart-quantity {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cart-quantity button {
+  padding: 0 0.7rem;
+  background: #000;
+  color: yellow;
+  border: 1px solid yellow;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+.cart-price {
+  display: flex;
   justify-content: center;
-  gap: 1rem;
+  font-weight: 700;
+}
+
+.cart-remove-btn {
+  background: none;
+  border: none;
 }
 
 .btn-add-sub {
   padding: 0.2rem 0.7rem;
-}
-
-.td-btn-remove {
-  width: 20rem;
-}
-
-.btn-remove {
-  border: none;
-  background: #dc3545;
-  color: white;
-  border-radius: 5px;
-  padding: 2px 20px;
 }
 
 .btn-confirm-order {
