@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div>
-      <Navigation cartItems={cartItems} />
+      <Navigation hasItems={cartItems.length} />
       <Routes>
         <Route
           path="/productos"
