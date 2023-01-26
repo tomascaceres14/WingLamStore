@@ -7,15 +7,17 @@ import { Route, Routes } from "react-router-dom";
 import AdminPanel from "./components/AdminPanel";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import axios from "axios";
+import JsonData from "./data/data.json";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/v1/products").then((e) => {
-      setProducts(e.data);
-    });
+    // axios.get("http://localhost:8080/api/v1/products").then((e) => {
+    //   setProducts(e.data);
+    // });
+    setProducts(JsonData);
     setCartItems(
       localStorage.getItem("wingLamCart") != null
         ? JSON.parse(localStorage.getItem("wingLamCart"))
