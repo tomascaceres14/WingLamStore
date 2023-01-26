@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Cart = ({ cartItems, setCartItems, addToCartHandler }) => {
   const removeFromCartHandler = (id) => {
@@ -47,36 +48,38 @@ const Cart = ({ cartItems, setCartItems, addToCartHandler }) => {
     <div className="container cart">
       {cartItems.length > 0 ? (
         cartItems.map((d, i) => (
-          <div className="row cart-item" key={"cart-item-" + i}>
-            <div className="col-2 cart-img">
-              <img src={d.imgUrl} alt={d.name} />
-            </div>
-            <div className="col-5">
-              <h3>{d.name}</h3>
-            </div>
-            <div className="col-1 cart-quantity">
-              <button
-                className="cart-quantity-btn"
-                onClick={() => removeFromCartHandler(i)}
-              >
-                -
-              </button>
-              {d.quantity}
-              <button
-                className="cart-quantity-btn"
-                onClick={() => addToCartHandler(d)}
-              >
-                +
-              </button>
-            </div>
-            <div className="col-2 cart-price">${d.price}</div>
-            <div className="col-2">
-              <button
-                className="cart-remove-btn"
-                onClick={() => deleteHandler()}
-              >
-                <i class="bi bi-trash3-fill"></i>
-              </button>
+          <div>
+            <div className="row cart-item" key={"cart-item-" + i}>
+              <div className="col-2 cart-img">
+                <img src={d.imgUrl} alt={d.name} />
+              </div>
+              <div className="col-5">
+                <h3>{d.name}</h3>
+              </div>
+              <div className="col-1 cart-quantity">
+                <button
+                  className="cart-quantity-btn"
+                  onClick={() => removeFromCartHandler(i)}
+                >
+                  -
+                </button>
+                {d.quantity}
+                <button
+                  className="cart-quantity-btn"
+                  onClick={() => addToCartHandler(d)}
+                >
+                  +
+                </button>
+              </div>
+              <div className="col-2 cart-price">${d.price}</div>
+              <div className="col-2">
+                <button
+                  className="cart-remove-btn"
+                  onClick={() => deleteHandler()}
+                >
+                  <i class="bi bi-trash3-fill"></i>
+                </button>
+              </div>
             </div>
           </div>
         ))
@@ -84,12 +87,18 @@ const Cart = ({ cartItems, setCartItems, addToCartHandler }) => {
         <div className="row cart-item">No hay productos en el carrito.</div>
       )}
       <div className="container-fluid d-flex justify-content-center">
-        <button
-          className="btn btn-success btn-confirm-order"
-          onClick={() => purchaseHandler()}
-        >
-          Confirmar pedido
-        </button>
+        {cartItems.length > 0 ? (
+          <button
+            className="btn btn-success btn-confirm-order"
+            onClick={() => purchaseHandler()}
+          >
+            Confirmar pedido
+          </button>
+        ) : (
+          <Link to="/productos" className="btn btn-primary">
+            Continuar comprando
+          </Link>
+        )}
       </div>
     </div>
   );
