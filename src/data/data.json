@@ -1,15 +1,18 @@
 [
   {
+    "productId": 1,
     "name": "Zapatillas Feiyue",
     "price": 4300,
     "imgUrl": "https://http2.mlstatic.com/D_Q_NP_629287-MLC44152251196_112020-O.webp"
   },
   {
+    "productId": 2,
     "name": "Libro Shaolin Norteño Cap. 1",
     "price": 1200,
     "imgUrl": "https://cdn.shopify.com/s/files/1/0014/3002/8375/products/Shaolin_Volume_1_Cover_1200x1200.png?v=1607041400"
   },
   {
+    "productId": 3,
     "name": "Dit Da Jow",
     "price": 500,
     "imgUrl": "https://cdn3.volusion.com/whuse.hwccj/v/vspfiles/photos/MHS-DitDaJow-2.jpg?v-cache=1643911388"

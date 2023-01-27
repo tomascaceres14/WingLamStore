@@ -1,4 +1,3 @@
-import "./App.css";
 import Navigation from "./components/Navigation";
 import { useEffect, useState } from "react";
 import Products from "./components/Products";
@@ -6,7 +5,7 @@ import Cart from "./components/Cart";
 import { Route, Routes } from "react-router-dom";
 import AdminPanel from "./components/AdminPanel";
 import ProtectedRoutes from "./components/ProtectedRoutes";
-import axios from "axios";
+// import axios from "axios";
 import JsonData from "./data/data.json";
 
 function App() {
